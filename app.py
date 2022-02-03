@@ -11,6 +11,11 @@ de la app y métodos que le dicen a la aplicación que hacer.
 app = Flask(__name__)
 count=0
 
+@app.route("/sms", methods=['GET'])
+def prueba():
+    mensa = "Hola"
+    return str(mensa)
+
 """
 Se mapea un dirección URL a una función. Se realiza un routing.
 """
@@ -70,4 +75,4 @@ def set_reminder_body(msg):
     
 # Aplicación
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000, debug=True)
