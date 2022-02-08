@@ -26,7 +26,7 @@ def reply():
 
     if len(words) == 1 and "si" in incoming_msg:
         reminder_string = "Por favor, entregue la información en el siguiente formato.\n\n"\
-        "*Date @* _Escriba la fecha_ "
+        "*Fecha @* _dia/mes/año_ "
         message.body(reminder_string)
         responded = True
     if len(words) == 1 and "no" in incoming_msg:
@@ -37,15 +37,15 @@ def reply():
     elif len(words) != 1:
         input_type = words[0].strip().lower()
         input_string = words[1].strip()
-        if input_type == "date":
+        if input_type == "fecha":
             reply="Por favor, entregue la información en el siguiente formato.\n\n"\
-            "*Reminder @* _type the message_"
+            "*Recordatorio @* _mensaje_"
             set_reminder_date(input_string)
             message.body(reply)
             responded = True
-        if input_type == "reminder":
+        if input_type == "recordatorio":
             print("yuhu")
-            reply="Your reminder is set!"
+            reply="¡Su recordatorio está listo!"
             set_reminder_body(input_string)
             message.body(reply)
             responded = True
