@@ -19,18 +19,18 @@ def reply():
     message=response.message()
     responded = False
     words = incoming_msg.split('@')
-    if "hello" in incoming_msg:
-        reply = "!Hola¡ \nBienvenido al Kairós Bot. \n Aquí pordrás ver tu estado de reclutamiento."
+    if "hola" in incoming_msg:
+        reply = "¡Hola! \nBienvenido al Kairós Bot. \nAquí pordrás ver tu estado de reclutamiento. \nResponda 'Si', si quiere continuar."
         message.body(reply)
         responded = True
 
-    if len(words) == 1 and "yes" in incoming_msg:
-        reminder_string = "Please provide date in the following format only.\n\n"\
-        "*Date @* _type the date_ "
+    if len(words) == 1 and "si" in incoming_msg:
+        reminder_string = "Por favor, entregue la información en el siguiente formato.\n\n"\
+        "*Date @* _Escriba la fecha_ "
         message.body(reminder_string)
         responded = True
     if len(words) == 1 and "no" in incoming_msg:
-        reply="Ok. Have a nice day!"
+        reply="Ok. ¡Tenga un excelente día!"
         message.body(reply)
         responded = True
     
@@ -38,7 +38,7 @@ def reply():
         input_type = words[0].strip().lower()
         input_string = words[1].strip()
         if input_type == "date":
-            reply="Please enter the reminder message in the following format only.\n\n"\
+            reply="Por favor, entregue la información en el siguiente formato.\n\n"\
             "*Reminder @* _type the message_"
             set_reminder_date(input_string)
             message.body(reply)
@@ -52,7 +52,7 @@ def reply():
         
     if not responded:
         print("why", input_type)
-        message.body('Incorrect request format. Please enter in the correct format')
+        message.body('Formato incorrecto. Por favor, ingréselo en el formato correcto.')
     
     return str(response)
     
