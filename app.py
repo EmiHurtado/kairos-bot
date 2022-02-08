@@ -20,7 +20,7 @@ def reply():
     responded = False
     words = incoming_msg.split('@')
     if "hello" in incoming_msg:
-        reply = "Hello! \nDo you want to set a reminder?"
+        reply = "!Hola¡ \nBienvenido al Kairós Bot. \n Aquí pordrás ver tu estado de reclutamiento."
         message.body(reply)
         responded = True
 
