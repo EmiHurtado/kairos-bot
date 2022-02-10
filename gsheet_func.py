@@ -19,8 +19,12 @@ def recuperador(nombre):
     cell = sheet.find(nombre)
 
     # Imprime la información deseada
-    val = sheet.cell(cell.row, cell.col + 1).value
-    print("Usted está", val)
-    return val
+    if cell != None:
+        val = sheet.cell(cell.row, cell.col + 1).value
+        print("Usted está", val)
+        return "Usted está" + val
+
+    else:
+        return "No se pudo encontrar. Contáctese con RH."
 
 
