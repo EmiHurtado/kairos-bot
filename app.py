@@ -37,7 +37,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body(reply)
         responded = True
 
-    elif len(nombre) == 3:
+    if len(nombre) == 3:
         val = recuperador(nombre)
         reply = "Usted está" + val
         message.body(reply)
