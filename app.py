@@ -3,7 +3,7 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from gsheet_func import *
 
-from dateutil.parser import parse
+# from dateutil.parser import parse
 
 """
 Se crea el objeto de la aplicación Flask, que contiene los datos
@@ -37,7 +37,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body(reply)
         responded = True
 
-    if len(nombre) == 3:
+    elif len(nombre) == 3:
         val = recuperador(nombre)
         reply = "Usted está" + val
         message.body(reply)
