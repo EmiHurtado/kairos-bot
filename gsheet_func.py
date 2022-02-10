@@ -6,7 +6,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 s=['https://www.googleapis.com/auth/spreadsheets',
 'https://www.googleapis.com/auth/drive']
 
-creds= ServiceAccountCredentials.from_json_keyfile_name('C:/Users/cafe_/OneDrive/Escritorio/Trabajo/Kairos/Tecnologia/Chatbot/Version_3/whatsapp-bot/credentials.json',s)
+creds= ServiceAccountCredentials.from_json_keyfile_name('credentials.json',s)
 client=gspread.authorize(creds)
 
 # Se accede a la hoja de datos para guardar información.
