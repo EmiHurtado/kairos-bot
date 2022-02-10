@@ -39,7 +39,7 @@ def reply(): # Se define el comportamiento de la respuesta.
 
     if len(nombre) == 3:
         reply = recupera_local(incoming_msg)
-        message.body("Estoy aquí")
+        message.body(reply)
         responded = True
 
     # Mensaje alterno si no se ingresa correctamente la información.
