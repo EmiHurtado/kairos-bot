@@ -25,58 +25,30 @@ def reply(): # Se define el comportamiento de la respuesta.
     incoming_msg = request.form.get('Body').lower()
     response = MessagingResponse()
     print(incoming_msg)
-    message=response.message()
+    message = response.message()
     responded = False
-    words = incoming_msg.split('@')
+    nombre = incoming_msg.split()
+    # words = incoming_msg.split('@')
+
+    # Saludo inicial
     if "hola" in incoming_msg:
-        reply = "¡Hola! \nBienvenido al Kairós Bot. \nAquí podrás ver tu estado de reclutamiento. \nResponda 'Si', si quiere continuar."
+        reply = "¡Hola! \nBienvenido al Kairós Bot. \nAquí podrás ver tu estado de reclutamiento. \n"\
+        "Ingrese su nombre de la siguiente forma:\n'ApellidoPaterno ApellidoMaterno Nombre'."
         message.body(reply)
         responded = True
 
-    if len(words) == 1 and "si" in incoming_msg:
-        reminder_string = "Por favor, entregue la información en el siguiente formato.\n\n"\
-        "*Fecha @* _dia/mes/año_ "
-        message.body(reminder_string)
-        responded = True
-    if len(words) == 1 and "no" in incoming_msg:
-        reply="Ok. ¡Tenga un excelente día!"
+    if len(nombre) == 3:
+        val = recuperador(nombre)
+        reply = "Usted está" + val
         message.body(reply)
         responded = True
-    
-    elif len(words) != 1:
-        input_type = words[0].strip().lower()
-        input_string = words[1].strip()
-        if input_type == "fecha":
-            reply="Por favor, entregue la información en el siguiente formato.\n\n"\
-            "*Recordatorio @* _mensaje_"
-            set_reminder_date(input_string)
-            message.body(reply)
-            responded = True
-        if input_type == "recordatorio":
-            print("yuhu")
-            reply="¡Su recordatorio está listo!"
-            set_reminder_body(input_string)
-            message.body(reply)
-            responded = True
-        
+
+    # Mensaje alterno si no se ingresa correctamente la información.
     if not responded:
-        print("why", input_type)
-        message.body('Formato incorrecto. Por favor, ingréselo en el formato correcto.')
+        # print("why", input_type)
+        message.body('No logro entender. Intente de nuevo.')
     
     return str(response)
-    
-def set_reminder_date(msg):
-    p= parse(msg)
-    date=p.strftime('%d/%m/%Y')
-    save_reminder_date(date)
-    return 0
-    
-def set_reminder_body(msg):
-    save_reminder_body(msg)
-    return 0
-    
-     
-    return reminder_message
 
 # Aplicación
 if __name__ == "__main__":
