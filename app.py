@@ -38,7 +38,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True
 
     if len(nombre) == 3:
-        reply = recuperador(nombre)
+        reply = recupera_local(nombre)
         message.body("Estoy aquí")
         responded = True
 
@@ -48,6 +48,10 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body('No logro entender. Intente de nuevo.')
     
     return str(response)
+
+def recupera_local(nombre):
+    val = recuperador(nombre)
+    return val
 
 # Aplicación
 if __name__ == "__main__":
