@@ -1,17 +1,26 @@
-
+# Librerías
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from gsheet_func import *
 
 from dateutil.parser import parse
 
-
+"""
+Se crea el objeto de la aplicación Flask, que contiene los datos
+de la app y métodos que le dicen a la aplicación que hacer. 
+"""
 app = Flask(__name__)
 count=0
 
+# Mensaje de prueba
+@app.route("/sms", methods=['GET'])
+def prueba():
+    mensa = "Hola"
+    return str(mensa)
 
+# Se mapea un dirección URL a una función. Se realiza un routing.
 @app.route("/sms", methods=['POST'])
-def reply():
+def reply(): # Se define el comportamiento de la respuesta.
     
     incoming_msg = request.form.get('Body').lower()
     response = MessagingResponse()
@@ -69,7 +78,7 @@ def set_reminder_body(msg):
      
     return reminder_message
 
-
+# Aplicación
 if __name__ == "__main__":
     app.run(debug=True)
     
