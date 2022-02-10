@@ -39,7 +39,7 @@ def reply(): # Se define el comportamiento de la respuesta.
 
     if len(nombre) == 3:
         reply = recuperador(nombre)
-        message.body(reply)
+        message.body("Estoy aquí")
         responded = True
 
     # Mensaje alterno si no se ingresa correctamente la información.
