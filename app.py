@@ -38,7 +38,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True
 
     if len(nombre) == 3:
-        reply = recupera_local(nombre)
+        reply = recupera_local(incoming_msg)
         message.body("Estoy aquí")
         responded = True
 
