@@ -16,6 +16,7 @@ sheet = client.open("Reminders").sheet1
 def recuperador(nombre):
     
     # Encuentra la celda requerida
+    print(nombre)
     cell = sheet.find(nombre)
 
     # Imprime la información deseada
