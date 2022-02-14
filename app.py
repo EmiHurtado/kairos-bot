@@ -23,6 +23,7 @@ def prueba():
 def reply(): # Se define el comportamiento de la respuesta.
     
     incoming_msg = request.form.get('Body').lower()
+    incoming_msg2 = request.form.get('Body')
     response = MessagingResponse()
     print(incoming_msg)
     message = response.message()
@@ -38,7 +39,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True
 
     if len(nombre) == 3:
-        reply = recupera_local(incoming_msg)
+        reply = recupera_local(incoming_msg2)
         message.body(reply)
         responded = True
 
