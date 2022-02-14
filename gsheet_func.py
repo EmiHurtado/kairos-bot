@@ -24,7 +24,7 @@ def recuperador(nombre):
         val1 = sheet.cell(cell.row, cell.col + 1).value
         val2 = sheet.cell(cell.row, cell.col + 2).value
         print("Usted está", val1, val2)
-        return "Usted está " + val1 + "\n" + "val2"
+        return "Usted está " + val1 + "\n" + "Feedback: " + val2
 
     else:
         return "No se pudo encontrar. Contáctese con RH."
