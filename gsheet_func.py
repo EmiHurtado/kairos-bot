@@ -23,7 +23,7 @@ def recuperador(nombre):
     if cell != None:
         val = sheet.cell(cell.row, cell.col + 1).value
         print("Usted está", val)
-        return "Usted está" + val
+        return "Usted está " + val
 
     else:
         return "No se pudo encontrar. Contáctese con RH."
