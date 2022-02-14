@@ -38,7 +38,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body(reply)
         responded = True
 
-    if len(nombre) == 3:
+    if len(nombre) == 2:
         reply = recupera_local(incoming_msg2)
         message.body(reply)
         responded = True
