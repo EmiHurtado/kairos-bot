@@ -38,17 +38,17 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body(reply)
         responded = True
 
+    if split[0] == "T" or split[0] == "C":
+        reply = recupera_local(incoming_msg2)
+        message.body(reply)
+        responded = True 
+    
     if "2" in incoming_msg:
         reply = "Ingrese el número telefónico o correo electrónico que proporcionó en su postulamiento, "\
         "de la siguiente forma únicamente: T 5547836842 o C emhurtadom@outlook.com"
         message.body(reply)
         responded = True
         
-    if split[0] == "T" or split[0] == "C":
-        reply = recupera_local(incoming_msg2)
-        message.body(reply)
-        responded = True
-
     # Mensaje alterno si no se ingresa correctamente la información.
     if not responded:
         # print("why", input_type)
