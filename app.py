@@ -29,6 +29,7 @@ def reply(): # Se define el comportamiento de la respuesta.
     message = response.message()
     responded = False
     nombre = incoming_msg.split()
+    numero = 0
     # words = incoming_msg.split('@')
 
     # Saludo inicial
@@ -38,13 +39,13 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body(reply)
         responded = True
 
-    if "2" in incoming_msg:
+    elif "2" in incoming_msg:
         numero = 2
         reply = "Ingrese el número telefónico o correo electrónico que proporcionó en su postulamiento. \n"
         message.body(reply)
         responded = True
         
-    if numero == 2:
+    elif numero == 2:
         numero = 0
         reply = recupera_local(incoming_msg2)
         message.body(reply)
