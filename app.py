@@ -10,7 +10,7 @@ Se crea el objeto de la aplicación Flask, que contiene los datos
 de la app y métodos que le dicen a la aplicación que hacer. 
 """
 app = Flask(__name__)
-count=0
+count = 0
 
 # Mensaje de prueba
 @app.route("/sms", methods=['GET'])
@@ -29,7 +29,8 @@ def reply(): # Se define el comportamiento de la respuesta.
     message = response.message()
     responded = False
     nombre = incoming_msg.split()
-    numero = 0
+    if count == 0:
+        numero = 0
     # words = incoming_msg.split('@')
 
     # Saludo inicial
@@ -41,6 +42,7 @@ def reply(): # Se define el comportamiento de la respuesta.
 
     elif "2" in incoming_msg:
         numero = 2
+        count = count + 1
         reply = "Ingrese el número telefónico o correo electrónico que proporcionó en su postulamiento. \n"
         message.body(reply)
         responded = True
