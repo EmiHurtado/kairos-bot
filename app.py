@@ -33,12 +33,19 @@ def reply(): # Se define el comportamiento de la respuesta.
 
     # Saludo inicial
     if "hola" in incoming_msg:
-        reply = "¡Hola! \nBienvenido al Kairós Bot. \nAquí podrás ver tu estado de reclutamiento. \n"\
-        "Ingrese su nombre de la siguiente forma:\n'ApellidoPaterno ApellidoMaterno Nombre'."
+        reply = "¡Hola! \nBienvenido al Kairós Bot. \nElija una de las siguientes opciones, escribiendo sólo el número. \n"\
+        "1.- Postularme.\n2.-Ver mi seguimiento.\n3.-Contactar un reclutador."
         message.body(reply)
         responded = True
 
-    if len(nombre) == 2:
+    if "2" in incoming_msg:
+        numero = 2
+        reply = "Ingrese el número telefónico o correo electrónico que proporcionó en su postulamiento. \n"
+        message.body(reply)
+        responded = True
+        
+    if numero == 2:
+        numero = 0
         reply = recupera_local(incoming_msg2)
         message.body(reply)
         responded = True
