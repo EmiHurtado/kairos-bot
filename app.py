@@ -28,9 +28,7 @@ def reply(): # Se define el comportamiento de la respuesta.
     print(incoming_msg)
     message = response.message()
     responded = False
-    nombre = incoming_msg.split()
-    if count == 0:
-        numero = 0
+    split = incoming_msg.split()
     # words = incoming_msg.split('@')
 
     # Saludo inicial
@@ -41,14 +39,12 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True
 
     elif "2" in incoming_msg:
-        numero = 2
-        count = count + 1
-        reply = "Ingrese el número telefónico o correo electrónico que proporcionó en su postulamiento. \n"
+        reply = "Ingrese el número telefónico o correo electrónico que proporcionó en su postulamiento, \n"\
+        "de la siguiente forma únicamente: T 5547836842 o C emhurtadom@outlook.com"
         message.body(reply)
         responded = True
         
-    elif numero == 2:
-        numero = 0
+    elif split[0] == "T" or split[0] == "C":
         reply = recupera_local(incoming_msg2)
         message.body(reply)
         responded = True
