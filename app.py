@@ -55,7 +55,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True
     
     elif incoming_msg == "3":
-        reply = "Mande por este medio su CV, por favor."
+        reply = reclutador()
         message.body(reply)
         responded = True
         
@@ -65,10 +65,6 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body('No logro entender. Intente de nuevo.')
     
     return str(response)
-
-#def recupera_local(nombre):
-#    val = recuperador(nombre)
-#    return val
 
 # Aplicación
 if __name__ == "__main__":
