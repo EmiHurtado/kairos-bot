@@ -43,9 +43,19 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body(reply)
         responded = True 
     
-    elif "2" in incoming_msg:
+    elif incoming_msg == "1":
+        reply = "Mande por este medio su CV, por favor."
+        message.body(reply)
+        responded = True
+    
+    elif incoming_msg == "2":
         reply = "Ingrese el número telefónico o correo electrónico que proporcionó en su postulamiento, "\
         "de la siguiente forma únicamente: T 5547836842 o C emhurtadom@outlook.com"
+        message.body(reply)
+        responded = True
+    
+    elif incoming_msg == "3":
+        reply = "Mande por este medio su CV, por favor."
         message.body(reply)
         responded = True
         
