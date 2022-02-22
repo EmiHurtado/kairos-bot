@@ -12,7 +12,7 @@ client=gspread.authorize(creds)
 
 # Se accede a la hoja de datos para guardar información.
 sheet = client.open("Data_Base").sheet1
-sheet2 = client.open("Data_Base").sheet2
+sheet2 = client.open("Data_Base").worksheet("Hoja 2")
 
 # Se definen las funciones para recuperar datos.
 def recuperador(nombre):
