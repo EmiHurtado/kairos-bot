@@ -39,7 +39,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True
 
     elif incoming_msg[0] == "t" or incoming_msg[0] == "c":
-        reply = recupera_local(support2[1])
+        reply = recuperador(support2[1])
         message.body(reply)
         responded = True 
     
@@ -66,9 +66,9 @@ def reply(): # Se define el comportamiento de la respuesta.
     
     return str(response)
 
-def recupera_local(nombre):
-    val = recuperador(nombre)
-    return val
+#def recupera_local(nombre):
+#    val = recuperador(nombre)
+#    return val
 
 # Aplicación
 if __name__ == "__main__":
