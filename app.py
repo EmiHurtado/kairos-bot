@@ -38,7 +38,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         message.body(reply)
         responded = True
 
-    elif incoming_msg[0] == "T" or incoming_msg[0] == "C":
+    elif incoming_msg[0] == "t" or incoming_msg[0] == "c":
         reply = recupera_local(incoming_msg2)
         message.body(reply)
         responded = True 
