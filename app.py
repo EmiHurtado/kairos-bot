@@ -24,11 +24,11 @@ def reply(): # Se define el comportamiento de la respuesta.
     
     incoming_msg = request.form.get('Body').lower()
     incoming_msg2 = request.form.get('Body')
+    support2 = incoming_msg2.split(" ")
     response = MessagingResponse()
     print(incoming_msg)
     message = response.message()
     responded = False
-    split = incoming_msg.split()
     # words = incoming_msg.split('@')
 
     # Saludo inicial
@@ -39,7 +39,7 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True
 
     elif incoming_msg[0] == "t" or incoming_msg[0] == "c":
-        reply = recupera_local(incoming_msg2)
+        reply = recupera_local(support2[1])
         message.body(reply)
         responded = True 
     
