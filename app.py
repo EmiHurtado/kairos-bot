@@ -40,7 +40,7 @@ def reply(): # Se define el comportamiento de la respuesta.
     
     elif incoming_msg[0] == "h":
         upHora(support2[1])
-        reply = "Muchas gracias por su tiempo. Esperamos contactar con usted pronto"
+        reply = "Muchas gracias por su tiempo. Esperamos contactar con usted pronto."
         message.body(reply)
         responded = True 
     
@@ -52,14 +52,15 @@ def reply(): # Se define el comportamiento de la respuesta.
     
     elif incoming_msg[0] == "v":
         upCV(support2[1])
-        reply = "Muy bien. Por último, deseamos saber una fecha y hora en la que esté disponible para contactarlo.:"\
-        "Primero, envíe la fecha de la siguiente manera: F 25/02/22"
+        reply = "Muy bien. Por último, deseamos saber una fecha y hora en la que esté disponible para contactarlo:\n"\
+        "Primero, envíe la fecha de la siguiente manera: F 25/02/2022"
         message.body(reply)
         responded = True 
         
     elif incoming_msg[0] == "n":
-        upNombre(support2[1])
-        reply = "Gracias. Ahora mande el link de su CV (puede subirlo a Google Drive y compartirnos el link) de la siguiente forma únicamente:"\
+        argumento = support2[1] + " " + support2[2]
+        upNombre(argumento)
+        reply = "Gracias. Ahora mande el link de su CV (puede subirlo a Google Drive y compartirnos el link) de la siguiente forma únicamente:\n"\
         "V https://drive.google.com/file/d/1DHl59LeHzLxmG9w_rsBwAJY-y8rG7dfz/view?usp=sharing"
         message.body(reply)
         responded = True 
@@ -70,8 +71,8 @@ def reply(): # Se define el comportamiento de la respuesta.
         responded = True 
     
     elif incoming_msg == "1":
-        reply = "Mande por este medio su nombre completo de la siguiente forma únicamente:"\
-        "N Emiliano Hurtado Morales"
+        reply = "Mande por este medio su nombre completo de la siguiente forma únicamente:\n"\
+        "N Emiliano Hurtado"
         message.body(reply)
         responded = True
     
