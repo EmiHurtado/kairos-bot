@@ -37,14 +37,41 @@ def reply(): # Se define el comportamiento de la respuesta.
         "1.- Postularme.\n2.- Ver mi seguimiento.\n3.- Contactar un reclutador."
         message.body(reply)
         responded = True
-
+    
+    elif incoming_msg[0] == "h":
+        upHora(support2[1])
+        reply = "Muchas gracias por su tiempo. Esperamos contactar con usted pronto"
+        message.body(reply)
+        responded = True 
+    
+    elif incoming_msg[0] == "f":
+        upFecha(support2[1])
+        reply = "Ahora la hora de la siguiente manera: H 3:57PM"
+        message.body(reply)
+        responded = True 
+    
+    elif incoming_msg[0] == "v":
+        upCV(support2[1])
+        reply = "Muy bien. Por último, deseamos saber una fecha y hora en la que esté disponible para contactarlo.:"\
+        "Primero, envíe la fecha de la siguiente manera: F 25/02/22"
+        message.body(reply)
+        responded = True 
+        
+    elif incoming_msg[0] == "n":
+        upNombre(support2[1])
+        reply = "Gracias. Ahora mande el link de su CV (puede subirlo a Google Drive y compartirnos el link) de la siguiente forma únicamente:"\
+        "V https://drive.google.com/file/d/1DHl59LeHzLxmG9w_rsBwAJY-y8rG7dfz/view?usp=sharing"
+        message.body(reply)
+        responded = True 
+    
     elif incoming_msg[0] == "t" or incoming_msg[0] == "c":
         reply = recuperador(support2[1])
         message.body(reply)
         responded = True 
     
     elif incoming_msg == "1":
-        reply = "Mande por este medio su CV, por favor."
+        reply = "Mande por este medio su nombre completo de la siguiente forma únicamente:"\
+        "N Emiliano Hurtado Morales"
         message.body(reply)
         responded = True
     
